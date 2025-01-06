@@ -12,17 +12,11 @@ import sys
 
 from Vykopavka_fce import liniovka
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6 import QtWidgets
-from PySide6.QtWidgets import (QApplication, QGridLayout, QLabel, QLineEdit,
-    QMainWindow, QMenuBar, QRadioButton, QSizePolicy,
-    QStatusBar, QTabWidget, QWidget)
+from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect,
+    QSize, Qt)
+from PySide6 import (QtWidgets,QtGui)
+from PySide6.QtWidgets import (QGridLayout, QLabel, QLineEdit,
+    QMenuBar, QRadioButton, QStatusBar, QTabWidget, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -31,6 +25,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(387, 397)
         MainWindow.setMinimumSize(QSize(387, 397))
         MainWindow.setMaximumSize(QSize(387, 397))
+        MainWindow.setWindowIcon(QtGui.QIcon('1406304.ico'))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
@@ -206,7 +201,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Vykop\u00e1vka", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"D\u00e9lka v\u00fdkopu (km):", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Vzd\u00e1lenost (1 cesta, km):", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Celkov\u00e1 cena (K\u010d bez DPH):", None))
