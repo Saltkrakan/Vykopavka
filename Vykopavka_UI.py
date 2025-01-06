@@ -331,7 +331,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.vypocet_plochy()
 
 app = QtWidgets.QApplication(sys.argv)
-
+app.setWindowIcon(QtGui.QIcon("1406304.ico"))
 window = MainWindow()
 window.show()
 app.exec()
