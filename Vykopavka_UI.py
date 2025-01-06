@@ -262,19 +262,19 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         vzdalenost = self.lineEdit_2.text()
         if delka != "" and vzdalenost != "":
             try:
-                cena = liniovka(float(sazba_linie), float(delka), float(doprava), float(vzdalenost))
+                if float(delka) < 0.0 or float(vzdalenost) < 0.0:
+                    self.statusbar.setStyleSheet("QStatusBar{padding-left:8px;background:rgba(255,0,0,255);color:black;font-weight:bold;}")
+                    self.statusbar.showMessage("Zadejte pouze kladné hodnoty!")
+                    self.lineEdit_3.setStyleSheet("color: red;")
+                    self.lineEdit_3.setText("Chyba!")
+                else:
+                    cena = liniovka(float(sazba_linie), float(delka), float(doprava), float(vzdalenost))
             except ValueError:
                 self.statusbar.setStyleSheet("QStatusBar{padding-left:8px;background:rgba(255,0,0,255);color:black;font-weight:bold;}")
                 self.statusbar.showMessage("Zadejte pouze číselné hodnoty!")
                 self.lineEdit_3.setStyleSheet("color: red;")
                 self.lineEdit_3.setText("Chyba!")
-            if cena < 0:
-                self.statusbar.setStyleSheet("QStatusBar{padding-left:8px;background:rgba(255,0,0,255);color:black;font-weight:bold;}")
-                self.statusbar.showMessage("Zadejte pouze kladné hodnoty!")
-                self.lineEdit_3.setStyleSheet("color: red;")
-                self.lineEdit_3.setText("Chyba!")
-            else:
-                self.lineEdit_3.setText(str(round(cena,2)))
+            self.lineEdit_3.setText(str(round(cena,2)))
     
     def vypocet_optiky(self):
         self.statusbar.setStyleSheet(statusbar_default_style)
@@ -286,19 +286,19 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         vzdalenost = self.lineEdit_4.text()
         if delka != "" and vzdalenost != "":
             try:
-                cena = liniovka(float(sazba_optika), float(delka), float(doprava), float(vzdalenost))
+                if float(delka) < 0.0 or float(vzdalenost) < 0.0:
+                    self.statusbar.setStyleSheet("QStatusBar{padding-left:8px;background:rgba(255,0,0,255);color:black;font-weight:bold;}")
+                    self.statusbar.showMessage("Zadejte pouze kladné hodnoty!")
+                    self.lineEdit_6.setStyleSheet("color: red;")
+                    self.lineEdit_6.setText("Chyba!")
+                else:
+                    cena = liniovka(float(sazba_optika), float(delka), float(doprava), float(vzdalenost))
             except ValueError:
                 self.statusbar.setStyleSheet("QStatusBar{padding-left:8px;background:rgba(255,0,0,255);color:black;font-weight:bold;}")
                 self.statusbar.showMessage("Zadejte pouze číselné hodnoty!")
                 self.lineEdit_6.setStyleSheet("color: red;")
                 self.lineEdit_6.setText("Chyba!")
-            if cena < 0:
-                self.statusbar.setStyleSheet("QStatusBar{padding-left:8px;background:rgba(255,0,0,255);color:black;font-weight:bold;}")
-                self.statusbar.showMessage("Zadejte pouze kladné hodnoty!")
-                self.lineEdit_6.setStyleSheet("color: red;")
-                self.lineEdit_6.setText("Chyba!")
-            else:
-                self.lineEdit_6.setText(str(round(cena,2)))
+            self.lineEdit_6.setText(str(round(cena,2)))
     
     def vypocet_plochy(self):
         self.statusbar.setStyleSheet(statusbar_default_style)
@@ -313,19 +313,19 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             sazba_plocha = self.lineEdit_14.text()
         if plocha != "" and vzdalenost != "":
             try:
-                cena = liniovka(float(sazba_plocha), float(plocha), float(doprava), float(vzdalenost))
+                if float(plocha) < 0.0 or float(vzdalenost) < 0.0:
+                    self.statusbar.setStyleSheet("QStatusBar{padding-left:8px;background:rgba(255,0,0,255);color:black;font-weight:bold;}")
+                    self.statusbar.showMessage("Zadejte pouze kladné hodnoty!")
+                    self.lineEdit_9.setStyleSheet("color: red;")
+                    self.lineEdit_9.setText("Chyba!")
+                else:
+                    cena = liniovka(float(sazba_plocha), float(plocha), float(doprava), float(vzdalenost))
             except ValueError:
                 self.statusbar.setStyleSheet("QStatusBar{padding-left:8px;background:rgba(255,0,0,255);color:black;font-weight:bold;}")
                 self.statusbar.showMessage("Zadejte pouze číselné hodnoty!")
                 self.lineEdit_9.setStyleSheet("color: red;")
-                self.lineEdit_9.setText("Chyba!")
-            if cena < 0:
-                self.statusbar.setStyleSheet("QStatusBar{padding-left:8px;background:rgba(255,0,0,255);color:black;font-weight:bold;}")
-                self.statusbar.showMessage("Zadejte pouze kladné hodnoty!")
-                self.lineEdit_9.setStyleSheet("color: red;")
-                self.lineEdit_9.setText("Chyba!")
-            else:
-                self.lineEdit_9.setText(str(round(cena,2)))
+                self.lineEdit_9.setText("Chyba!")           
+            self.lineEdit_9.setText(str(round(cena,2)))
 
     def radButton_click(self):
         self.label_10.setText("1000 m2")
